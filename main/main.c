@@ -42,6 +42,7 @@ struct menu_item {
 #include "demo_power.h"
 
 const struct menu_item demoMenu[] = {
+#ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"text demo 1", &demoText1},
     {"text demo 2", &demoText2},
 #ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
@@ -52,6 +53,7 @@ const struct menu_item demoMenu[] = {
     {"greyscale image 3", &demoGreyscaleImg3},
 #endif // CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"greyscale image 4", &demoGreyscaleImg4},
+#ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"partial update test", &demoPartialUpdate},
 #ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"dot 1", &demoDot1},
