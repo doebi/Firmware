@@ -34,6 +34,8 @@ struct menu_item {
 #include "demo_greyscale_img2.h"
 #include "demo_greyscale_img3.h"
 #include "demo_greyscale_img4.h"
+#include "demo_depg_greyscale1.h"
+#include "demo_depg_greyscale2.h"
 #include "demo_partial_update.h"
 #include "demo_dot1.h"
 #include "demo_test_adc.h"
@@ -52,6 +54,8 @@ const struct menu_item demoMenu[] = {
     {"greyscale image 3", &demoGreyscaleImg3},
 #endif // CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"greyscale image 4", &demoGreyscaleImg4},
+    {"depg greyscale 1", &demoDepgGreyscale1},
+    {"depg greyscale 2", &demoDepgGreyscale2},
     {"partial update test", &demoPartialUpdate},
 #ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"dot 1", &demoDot1},
