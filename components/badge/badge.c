@@ -11,6 +11,7 @@
 #include "badge_touch.h"
 #include "badge_power.h"
 #include "badge_leds.h"
+#include "badge_buzzer.h"
 #include "badge_eink.h"
 
 #ifdef I2C_TOUCHPAD_ADDR
@@ -109,6 +110,10 @@ badge_init(void)
 #ifdef PIN_NUM_LEDS
 	badge_leds_init();
 #endif // PIN_NUM_LEDS
+
+#if defined(PORTEXP_PIN_NUM_BUZZER) || defined(MPR121_PIN_NUM_BUZZER)
+	badge_buzzer_init();
+#endif // defined(PORTEXP_PIN_NUM_BUZZER) || defined(MPR121_PIN_NUM_BUZZER)
 
 	// configure eink display
 	badge_eink_init();
