@@ -55,8 +55,10 @@ const struct menu_item demoMenu[] = {
     {"greyscale image 3", &demoGreyscaleImg3},
 #endif // CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"greyscale image 4", &demoGreyscaleImg4},
+#ifdef CONFIG_SHA_BADGE_EINK_DEPG0290B1
     {"depg greyscale 1", &demoDepgGreyscale1},
     {"depg greyscale 2", &demoDepgGreyscale2},
+#endif // CONFIG_SHA_BADGE_EINK_DEPG0290B1
     {"partial update test", &demoPartialUpdate},
 #ifdef CONFIG_SHA_BADGE_EINK_GDEH029A1
     {"dot 1", &demoDot1},
