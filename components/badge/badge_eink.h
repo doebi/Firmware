@@ -36,6 +36,7 @@ extern void badge_eink_update(const struct badge_eink_update *upd_conf);
 #define DISPLAY_FLAG_GREYSCALE  1
 #define DISPLAY_FLAG_ROTATE_180 2
 #define DISPLAY_FLAG_NO_UPDATE  4
+#define DISPLAY_FLAG_ALT_BUFFER 8
 // fields and sizes:
 #define DISPLAY_FLAG_LUT_BIT    8
 #define DISPLAY_FLAG_LUT_SIZE   4

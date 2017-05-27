@@ -38,7 +38,7 @@ write_bitplane(const uint8_t *img, int y_start, int y_end, int bit, int flags)
 #endif
 	badge_eink_set_ram_area(0, DISP_SIZE_X_B - 1, 0, DISP_SIZE_Y - 1);
 	badge_eink_set_ram_pointer(0, 0);
-	gdeWriteCommandInit(0x24);
+	gdeWriteCommandInit((flags & DISPLAY_FLAG_ALT_BUFFER) ? 0x26 : 0x24);
 	int x, y;
 	int pos, dx, dy;
 	if (flags & DISPLAY_FLAG_ROTATE_180)
@@ -168,7 +168,7 @@ badge_eink_display(const uint8_t *img, int mode)
 			/* draw initial pattern */
 			badge_eink_set_ram_area(0, DISP_SIZE_X_B - 1, 0, DISP_SIZE_Y - 1);
 			badge_eink_set_ram_pointer(0, 0);
-			gdeWriteCommandInit(0x24);
+			gdeWriteCommandInit((mode & DISPLAY_FLAG_ALT_BUFFER) ? 0x26 : 0x24);
 			int c;
 			for (c = 0; c < DISP_SIZE_X_B * DISP_SIZE_Y; c++)
 				gdeWriteByte((i & 1) ? 0xff : 0x00);
