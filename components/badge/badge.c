@@ -10,6 +10,7 @@
 #include "badge_mpr121.h"
 #include "badge_touch.h"
 #include "badge_power.h"
+#include "badge_sdcard.h"
 #include "badge_leds.h"
 #include "badge_buzzer.h"
 #include "badge_eink.h"
@@ -114,6 +115,8 @@ badge_init(void)
 #if defined(PORTEXP_PIN_NUM_BUZZER) || defined(MPR121_PIN_NUM_BUZZER)
 	badge_buzzer_init();
 #endif // defined(PORTEXP_PIN_NUM_BUZZER) || defined(MPR121_PIN_NUM_BUZZER)
+
+	badge_sdcard_init();
 
 	// configure eink display
 	badge_eink_init();

@@ -8,6 +8,7 @@
 #include <badge_eink.h>
 #include <badge_power.h>
 #include <badge_input.h>
+#include <badge_sdcard.h>
 
 #include <font.h>
 
@@ -19,6 +20,7 @@ demoPower(void) {
 	char text[32];
 
 	bool bat_cs = false;
+	bool sdcard_cd = false;
 	int v_bat = -1;
 	int v_usb = -1;
 
@@ -40,10 +42,11 @@ demoPower(void) {
 		int new_v_usb = 0;
 #endif
 
-		if (bat_cs != new_bat_cs ||
+		if (bat_cs != new_bat_cs || sdcard_cd != new_sdcard_cd ||
 			v_bat != new_v_bat || v_usb != new_v_usb)
 		{
 			bat_cs = new_bat_cs;
+			sdcard_cd = new_sdcard_cd;
 			v_bat = new_v_bat;
 			v_usb = new_v_usb;
 
@@ -59,6 +62,10 @@ demoPower(void) {
 
 			snprintf(text, sizeof(text), "Vbat       : %d.%03d V", v_bat / 1000, v_bat % 1000);
 			draw_font(screen_buf, 16, 24, BADGE_EINK_WIDTH-32, text,
+					FONT_MONOSPACE | FONT_INVERT);
+
+			snprintf(text, sizeof(text), "Have SDcard: %s", sdcard_cd ? "true" : "false");
+			draw_font(screen_buf, 16, 40, BADGE_EINK_WIDTH-32, text,
 					FONT_MONOSPACE | FONT_INVERT);
 
 			/* update display */
