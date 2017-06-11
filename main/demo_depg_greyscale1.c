@@ -4,9 +4,8 @@
 #include <freertos/FreeRTOS.h>
 #include <esp_event.h>
 
+#include <badge_input.h>
 #include <badge_eink.h>
-
-#include "event_queue.h"
 
 #ifdef CONFIG_SHA_BADGE_EINK_DEPG0290B1
 
@@ -123,7 +122,7 @@ demoDepgGreyscale1(void) {
 	// wait for random keypress
 	uint32_t buttons_down = 0;
 	while ((buttons_down & 0xffff) == 0)
-		xQueueReceive(evt_queue, &buttons_down, portMAX_DELAY);
+		xQueueReceive(badge_input_queue, &buttons_down, portMAX_DELAY);
 }
 
 #endif // CONFIG_SHA_BADGE_EINK_DEPG0290B1

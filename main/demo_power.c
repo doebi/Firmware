@@ -31,6 +31,7 @@ demoPower(void) {
 #else
 		bool new_bat_cs = false;
 #endif
+		bool new_sdcard_cd = badge_sdcard_detected();
 #ifdef ADC1_CHAN_VBAT_SENSE
 		int new_v_bat = badge_battery_volt_sense();
 #else
